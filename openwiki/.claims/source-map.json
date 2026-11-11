@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:364c2c04a47281d4b395e8602483f917c5c979f56a1d2ec994bc1416121a5e2d",
+  "pageVersion": "sha256:80a3a500b1025b73aaf8b4f8c7b57a5da90a3d5f8eef0ddcf0141cb48639ec75",
   "claims": [
     {
       "id": "claim_c71edae5b0f64c8fa79c17ef1aca0f6b",
@@ -168,21 +168,21 @@
         },
         {
           "resource": "repo://libs/langchain_v1/pyproject.toml#L1-L30",
-          "version": "repo-lines-v1:sha256:ba15ca6c1b7aa99ec265172e0e29ee92033421752b3763abac6bf074948a9716:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0NTY5OTQ2YWM5YmJlN2NiMmNkZWMzZjhiZWNmMzQzNzUwYzU4YjliMzIxZWMyMTk1YmZiYWFiMmFhOGM0YmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0MmVmNTZmNGEyYzlkZjY0ZGQ5ZTNlZjAwY2ZmYWIyMTczN2YwNTFhYzU2YzczZDBjNmEwNzQ5NDQyNjhlYWUifQ"
+          "version": "repo-lines-v1:sha256:ff211f6fb6360ce22fb86428972bcd271701d28809b45bc8e1522a22ab4f8d98:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0NTY5OTQ2YWM5YmJlN2NiMmNkZWMzZjhiZWNmMzQzNzUwYzU4YjliMzIxZWMyMTk1YmZiYWFiMmFhOGM0YmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0MmVmNTZmNGEyYzlkZjY0ZGQ5ZTNlZjAwY2ZmYWIyMTczN2YwNTFhYzU2YzczZDBjNmEwNzQ5NDQyNjhlYWUifQ"
         }
       ]
     },
     {
       "id": "claim_458d709b604149fa8fb9639025882358",
-      "statement": "LangChain uses a multi-layer architecture: langchain-core (v1.7.7) for base abstractions, langchain (v1.4.9) for orchestration and agents, and partners for provider-specific implementations, enabling model interoperability and independent release cycles.",
+      "statement": "LangChain uses a multi-layer architecture: langchain-core (v1.7.7) for base abstractions, langchain (v1.4.10) for orchestration and agents, and partners for provider-specific implementations, enabling model interoperability and independent release cycles.",
       "evidence": [
         {
-          "resource": "repo://libs/core/pyproject.toml#L24-L24",
-          "version": "repo-lines-v1:sha256:a44c63b5905ff62523225a03c3a7e7b1b7263640dffa4783870f5f830691db7f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTQ0YzYzYjU5MDVmZjYyNTIzMjI1YTAzYzNhN2U3YjFiNzI2MzY0MGRmZmE0NzgzODcwZjVmODMwNjkxZGI3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTQ0YzYzYjU5MDVmZjYyNTIzMjI1YTAzYzNhN2U3YjFiNzI2MzY0MGRmZmE0NzgzODcwZjVmODMwNjkxZGI3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmRmYWFiMzNiMmUzYTUwMTM3NmZlODIxNDNkNzBmNmVkYjMyNWI4YWMzYWI5MDUwYTg0OTgwN2ZmM2FhZGI3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzc0MzY5NGEzZTBkOGRiMDQ5ZDQ1ZGFlOGM4YTdiYmM2YTk0NjAwYjNjN2MxZjFhNTJkMzQ4YzlkMjIzMTFkOSJ9"
+          "resource": "repo://libs/core/pyproject.toml",
+          "version": "repo-file-v1:sha256:1ed220039eb7510eb6bbff3d2e5a23145c19c44a7f3feb183f1ef3b3dd2c74cd"
         },
         {
-          "resource": "repo://libs/langchain_v1/pyproject.toml#L24-L24",
-          "version": "repo-lines-v1:sha256:fb05feffdbfb2ef5e1f9ab65952c535e3f40402c957dea5357b98fd464010d93:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIwNWZlZmZkYmZiMmVmNWUxZjlhYjY1OTUyYzUzNWUzZjQwNDAyYzk1N2RlYTUzNTdiOThmZDQ2NDAxMGQ5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIwNWZlZmZkYmZiMmVmNWUxZjlhYjY1OTUyYzUzNWUzZjQwNDAyYzk1N2RlYTUzNTdiOThmZDQ2NDAxMGQ5MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmRmYWFiMzNiMmUzYTUwMTM3NmZlODIxNDNkNzBmNmVkYjMyNWI4YWMzYWI5MDUwYTg0OTgwN2ZmM2FhZGI3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWQ0YzI1MjVmYjIzZjI0NzgwNjYwMTkyYmI4ZDc0ZWVjMmNmMTJkMTkwMDA1YjQ5ODUwMGRmMTNiMzI5YzU4YiJ9"
+          "resource": "repo://libs/langchain_v1/pyproject.toml",
+          "version": "repo-file-v1:sha256:4931c034de03b9071afed17cced9f8c15700c2b93d176e41cbc7db7427f9413f"
         }
       ]
     },
@@ -245,6 +245,6 @@
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-11-10T08:17:41.265Z"
+    "at": "2026-11-11T08:16:56.260Z"
   }
 }
