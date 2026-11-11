@@ -1,66 +1,39 @@
-name: CodSpeed
-
+name: CodSpeed Ubuntu apt route probe
 on:
-  push:
-    branches:
-        - master
-  pull_request:
   workflow_dispatch:
-
-env:
-  AZURE_OPENAI_API_VERSION: ${{ secrets.AZURE_OPENAI_API_VERSION }}
-  AZURE_OPENAI_API_BASE: ${{ secrets.AZURE_OPENAI_API_BASE }}
-  AZURE_OPENAI_CHAT_DEPLOYMENT_NAME: ${{ secrets.AZURE_OPENAI_CHAT_DEPLOYMENT_NAME }}
-  AZURE_OPENAI_LEGACY_CHAT_DEPLOYMENT_NAME: ${{ secrets.AZURE_OPENAI_LEGACY_CHAT_DEPLOYMENT_NAME }}
-  DEEPSEEK_API_KEY: foo
-  FIREWORKS_API_KEY: foo
-
+permissions:
+  contents: read
 jobs:
-  codspeed:
-    name: Run benchmarks
-    # Keep the retained CodSpeed runner on a supported Ubuntu release.
+  dns_https:
     runs-on: ubuntu-24.04
-    strategy:
-      matrix:
-        include:
-          - working-directory: libs/core
-            mode: walltime
-          - working-directory: libs/partners/openai
-          - working-directory: libs/partners/anthropic
-          - working-directory: libs/partners/deepseek
-          - working-directory: libs/partners/fireworks
-          - working-directory: libs/partners/xai
-          - working-directory: libs/partners/mistralai
-          - working-directory: libs/partners/groq
-      fail-fast: false
-
     steps:
-      - uses: actions/checkout@v4
-
-      # Use Python 3.12 with the retained CodSpeed runner.
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6
-        with:
-          python-version: "3.12"
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: uv sync --group test
-        working-directory: ${{ matrix.working-directory }}
-
-      - name: Run benchmarks ${{ matrix.working-directory }}
-        uses: CodSpeedHQ/action@v3
-        with:
-          token: ${{ secrets.CODSPEED_TOKEN }}
-          run: |
-            cd ${{ matrix.working-directory }}
-            if [ "${{ matrix.working-directory }}" = "libs/core" ]; then
-              uv run --no-sync pytest ./tests/benchmarks --codspeed
-            else
-              uv run --no-sync pytest ./tests/ --codspeed
-            fi
-          mode: ${{ matrix.mode || 'instrumentation' }}
-
+      - name: Read public Ubuntu DNS and HTTPS route status
+        run: |
+          python3 - <<'PYPROBE'
+          import json
+          import socket
+          import urllib.error
+          import urllib.request
+          hosts = ['azure.archive.ubuntu.com', 'archive.ubuntu.com', 'security.ubuntu.com']
+          for host in hosts:
+              try:
+                  rows = socket.getaddrinfo(host, 443)
+                  print(json.dumps({'probe': 'dns', 'host': host, 'resolved': True, 'records': len(rows)}))
+              except socket.gaierror as exc:
+                  print(json.dumps({'probe': 'dns', 'host': host, 'resolved': False, 'error_code': exc.errno}))
+          package = '/ubuntu/pool/main/g/glibc/libc6-dbg_2.39-0ubuntu8.9_amd64.deb'
+          endpoints = {
+              'azure_release': 'https://azure.archive.ubuntu.com/ubuntu/dists/noble/InRelease',
+              'canonical_release': 'https://archive.ubuntu.com/ubuntu/dists/noble/InRelease',
+              'azure_package': 'https://azure.archive.ubuntu.com' + package,
+              'canonical_package': 'https://archive.ubuntu.com' + package,
+          }
+          for name, url in endpoints.items():
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(url, method='HEAD'), timeout=30) as response:
+                      print(json.dumps({'probe': 'https', 'endpoint': name, 'status': response.status}))
+              except urllib.error.HTTPError as exc:
+                  print(json.dumps({'probe': 'https', 'endpoint': name, 'status': exc.code}))
+              except Exception as exc:
+                  print(json.dumps({'probe': 'https', 'endpoint': name, 'error_type': type(exc).__name__}))
+          PYPROBE
