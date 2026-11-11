@@ -161,14 +161,14 @@ css = [
 
 [[package]]
 name = "blockbuster"
-version = "1.5.18"
+version = "1.5.26"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "forbiddenfruit" },
+    { name = "forbiddenfruit", marker = "implementation_name == 'cpython'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/80/04/592ea42201d3d929bca02ca1c845ffae37eee6a8bfe63f9916f53881144e/blockbuster-1.5.18.tar.gz", hash = "sha256:c3395a01742e1d80a59e7457f6cb5edd9c9333bdac6a3b17908953f94b703431", size = 50856 }
+sdist = { url = "https://files.pythonhosted.org/packages/55/e0/dcbab602790a576b0b94108c07e2c048e5897df7cc83722a89582d733987/blockbuster-1.5.26.tar.gz", hash = "sha256:cc3ce8c70fa852a97ee3411155f31e4ad2665cd1c6c7d2f8bb1851dab61dc629", size = 36085 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/93/cb/0885a99be92700adc3f2294179e2ca8700b3197c89d2c87b1ca20ab2537a/blockbuster-1.5.18-py3-none-any.whl", hash = "sha256:0062af118fbddb6e85b4fa5e41df5da95ce4ceba44ff1efcc26be1ade11cad53", size = 13043 },
+    { url = "https://files.pythonhosted.org/packages/95/c1/84fc6811122f54b20de2e5afb312ee07a3a47a328755587d1e505475239b/blockbuster-1.5.26-py3-none-any.whl", hash = "sha256:f8e53fb2dd4b6c6ec2f04907ddbd063ca7cd1ef587d24448ef4e50e81e3a79bb", size = 13226 },
 ]
 
 [[package]]
@@ -1009,7 +1009,7 @@ dev = [
 ]
 lint = [{ name = "ruff", specifier = ">=0.11.2,<0.12.0" }]
 test = [
-    { name = "blockbuster", specifier = "~=1.5.18" },
+    { name = "blockbuster", specifier = "~=1.5.26" },
     { name = "freezegun", specifier = ">=1.2.2,<2.0.0" },
     { name = "grandalf", specifier = ">=0.8,<1.0" },
     { name = "langchain-tests", directory = "../standard-tests" },
