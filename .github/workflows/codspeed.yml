@@ -18,7 +18,8 @@ env:
 jobs:
   codspeed:
     name: Run benchmarks
-    runs-on: ubuntu-latest
+    # Keep the retained CodSpeed runner on a supported Ubuntu release.
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         include:
@@ -36,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # We have to use 3.12 as 3.13 is not yet supported
+      # Use Python 3.12 with the retained CodSpeed runner.
       - name: Install uv
         uses: astral-sh/setup-uv@v6
         with:
